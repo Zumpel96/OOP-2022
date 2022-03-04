@@ -1,3 +1,14 @@
+# Folders
+.vs
+/x64
+/x86
+*/x64
+*/x86
+
+# Visual Studio
+*.filters
+*.user
+
 # Prerequisites
 *.d
 
