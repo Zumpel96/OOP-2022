@@ -1,3 +1,12 @@
+# Local Folders
+*/.vs
+*/bin
+*/obj
+*/x64
+*/x86
+*.vcxproj.filters
+*.vcxproj.user
+
 # Prerequisites
 *.d
 
