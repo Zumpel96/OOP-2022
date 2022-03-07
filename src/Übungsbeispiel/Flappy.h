@@ -14,7 +14,7 @@ public:
 	void SetX(double x);
 	void SetY(double y);
 
-	void Render();
+	void Render() const;
 	void PhysicsUpdate();
 
 private:

@@ -1,4 +1,6 @@
 #pragma once
+#define CONST_PIPE_SPEED 3
+
 class Pipe
 {
 public:
@@ -10,6 +12,9 @@ public:
 
 	void SetX(double x);
 	void SetY(double y);
+
+	void Render() const;
+	void PhysicsUpdate();
 
 private:
 	double x;

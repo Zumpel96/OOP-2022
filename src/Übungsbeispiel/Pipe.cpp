@@ -40,3 +40,13 @@ void Pipe::SetY(double y) {
 		this->y = 100;
 	}
 }
+
+void Pipe::Render() const
+{
+	std::cout << this->GetX() << " " << this->GetY() << std::endl;
+}
+
+void Pipe::PhysicsUpdate()
+{
+	this->SetX(this->GetX() - CONST_PIPE_SPEED);
+}

@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <iostream>
+#include <windows.h>
 
 Game::Game()
 {
@@ -13,19 +14,24 @@ Game::~Game()
 
 void Game::Start()
 {
+	Pipe* p = new Pipe(100, 0);
+
 	while (true) {
-		this->PhysicsUpdate();
-		this->Render();
+		this->PhysicsUpdate(p);
+		this->Render(p);
+		//Sleep(16);
 	}
 }
 
-void Game::Render()
+void Game::Render(const Pipe* pipe) const
 {
 	system("CLS");
 	this->flappy->Render();
+	pipe->Render();
 }
 
-void Game::PhysicsUpdate()
+void Game::PhysicsUpdate(Pipe* pipe)
 {
 	this->flappy->PhysicsUpdate();
+	pipe->PhysicsUpdate();
 }

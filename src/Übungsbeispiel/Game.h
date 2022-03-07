@@ -1,5 +1,6 @@
 #pragma once
 #include "Flappy.h"
+#include "Pipe.h"
 
 class Game
 {
@@ -8,8 +9,8 @@ public:
 	~Game();
 
 	void Start();
-	void Render();
-	void PhysicsUpdate();
+	void Render(const Pipe* pipe) const;
+	void PhysicsUpdate(Pipe* pipe);
 
 private:
 	Flappy* flappy;
