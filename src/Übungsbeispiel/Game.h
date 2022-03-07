@@ -8,6 +8,8 @@ public:
 	~Game();
 
 	void Start();
+	void Render();
+	void PhysicsUpdate();
 
 private:
 	Flappy* flappy;

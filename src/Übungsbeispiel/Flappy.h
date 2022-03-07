@@ -1,4 +1,7 @@
 #pragma once
+
+#define CONST_FLAPPY_SPEED 0.25
+
 class Flappy
 {
 public:
@@ -10,6 +13,9 @@ public:
 
 	void SetX(double x);
 	void SetY(double y);
+
+	void Render();
+	void PhysicsUpdate();
 
 private:
 	double x;

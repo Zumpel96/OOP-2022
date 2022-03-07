@@ -3,7 +3,7 @@
 
 Game::Game()
 {
-	this->flappy = new Flappy(10, 0);
+	this->flappy = new Flappy(10, 20);
 }
 
 Game::~Game()
@@ -14,6 +14,18 @@ Game::~Game()
 void Game::Start()
 {
 	while (true) {
-		std::cout << this->flappy->GetX() << " " << this->flappy->GetY() << std::endl;
+		this->PhysicsUpdate();
+		this->Render();
 	}
+}
+
+void Game::Render()
+{
+	system("CLS");
+	this->flappy->Render();
+}
+
+void Game::PhysicsUpdate()
+{
+	this->flappy->PhysicsUpdate();
 }

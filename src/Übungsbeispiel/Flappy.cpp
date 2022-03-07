@@ -40,3 +40,13 @@ void Flappy::SetY(double y) {
 		this->y = 100;
 	}
 }
+
+void Flappy::Render()
+{
+	std::cout << this->GetX() << " " << this->GetY() << std::endl;
+}
+
+void Flappy::PhysicsUpdate()
+{
+	this->SetY(this->GetY() - CONST_FLAPPY_SPEED);
+}
