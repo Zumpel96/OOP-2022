@@ -1,5 +1,6 @@
 #include "Course.h"
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -18,4 +19,21 @@ void Course::SetGrade(int grade) {
 	}
 
 	this->grade = grade;
+}
+
+void Course::AddQuestion(Question* question)
+{
+	this->question = question;
+}
+
+std::string Course::ToString() const
+{
+	std::stringstream ss;
+
+	ss << "[" << this->name << "]" << std::endl;
+	ss << " --- Grade: " << this->grade << " --- " << std::endl;
+	ss << " =====================================" << std::endl;
+	ss << this->question->ToString() << std::endl;
+
+	return ss.str();
 }
