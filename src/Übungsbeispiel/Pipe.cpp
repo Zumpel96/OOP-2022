@@ -43,7 +43,7 @@ void Pipe::SetY(double y) {
 
 void Pipe::Render() const
 {
-	std::cout << this->GetX() << " " << this->GetY() << std::endl;
+	std::cout << "\033[42m \033[m";
 }
 
 void Pipe::PhysicsUpdate()

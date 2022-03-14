@@ -43,7 +43,7 @@ void Flappy::SetY(double y) {
 
 void Flappy::Render() const
 {
-	std::cout << this->GetX() << " " << this->GetY() << std::endl;
+	std::cout << "\033[43m \033[m";
 }
 
 void Flappy::PhysicsUpdate()
