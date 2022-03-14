@@ -4,7 +4,7 @@
 
 Game::Game()
 {
-	this->flappy = new Flappy(10, 20);
+	this->flappy = new Flappy(20);
 }
 
 Game::~Game()

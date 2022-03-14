@@ -1,24 +1,14 @@
 #pragma once
 
+#include "GameObject.h"
 #define CONST_FLAPPY_SPEED 0.25
 
-class Flappy
+class Flappy : public GameObject
 {
 public:
-	Flappy(double x, double y);
-	~Flappy();
-
-	double GetX() const;
-	double GetY() const;
-
-	void SetX(double x);
-	void SetY(double y);
+	Flappy(double y);
 
 	void Render() const;
 	void PhysicsUpdate();
-
-private:
-	double x;
-	double y;
 };
 
