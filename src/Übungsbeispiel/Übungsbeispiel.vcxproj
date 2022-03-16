@@ -142,13 +142,19 @@
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MultipleChoiceQuestion.cpp" />
+    <ClCompile Include="OpenQuestion.cpp" />
     <ClCompile Include="Question.cpp" />
+    <ClCompile Include="SingleChoiceQuestion.cpp" />
     <ClCompile Include="Student.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Course.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="MultipleChoiceQuestion.h" />
+    <ClInclude Include="OpenQuestion.h" />
     <ClInclude Include="Question.h" />
+    <ClInclude Include="SingleChoiceQuestion.h" />
     <ClInclude Include="Student.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

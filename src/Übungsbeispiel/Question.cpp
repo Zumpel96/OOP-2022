@@ -2,9 +2,10 @@
 #include <sstream>
 #include <iostream>
 
-Question::Question(std::string question)
+Question::Question(std::string question, std::string answer)
 {
 	this->question = question;
+	this->answer = answer;
 }
 
 std::string Question::GetQuestion() const
