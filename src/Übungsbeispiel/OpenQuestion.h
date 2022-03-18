@@ -5,5 +5,6 @@ class OpenQuestion : public Question
 {
 public:
 	OpenQuestion(std::string question, std::string answer);
+	void Evalute(std::string answer);
 };
 

@@ -19,6 +19,7 @@ Game::~Game()
 
 void Game::Start()
 {
+
 	Course* course = new Course("Test Course");
 	Question* q1 = new SingleChoiceQuestion("Test Question A", "Test A");
 	q1->AddAnswer("Test A");

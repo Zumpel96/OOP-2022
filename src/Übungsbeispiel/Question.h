@@ -9,7 +9,7 @@ public:
 	std::string GetQuestion() const;
 	void AddAnswer(std::string answer);
 	std::string ToString() const;
-	void Evalute(std::string answer);
+	virtual void Evalute(std::string answer) = 0;
 
 private:
 	std::string question;

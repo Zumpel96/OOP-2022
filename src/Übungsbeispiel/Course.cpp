@@ -17,6 +17,7 @@ void Course::Start()
 {
 	for (int i = 0; i < this->questionCount; i++) {
 		std::cout << this->questions[i]->ToString() << std::endl;
+		std::cout << "Enter answer: ";
 		std::string answer;
 		std::cin >> answer;
 		this->questions[i]->Evalute(answer);
