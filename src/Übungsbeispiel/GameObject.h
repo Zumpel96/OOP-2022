@@ -11,6 +11,9 @@ public:
 	void SetX(double x);
 	void SetY(double y);
 
+	virtual void PhysicsUpdate() = 0;
+	virtual void Render() const = 0;
+
 private:
 	double x;
 	double y;

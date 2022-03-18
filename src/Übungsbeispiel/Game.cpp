@@ -1,29 +1,36 @@
 #include "Game.h"
+#include "Flappy.h"
+#include "Pipe.h"
 #include <iostream>
 #include <windows.h>
 
 Game::Game()
 {
-	this->flappy = new Flappy(20);
+	this->gameObjects[0] = new Flappy(20);
+	this->numberOfGameObjects++;
 }
 
 Game::~Game()
 {
-	delete flappy;
+	for (int i = 0; i < this->numberOfGameObjects; i++) {
+		delete this->gameObjects[i];
+	}
+	delete[] this->gameObjects;
 }
 
 void Game::Start()
 {
-	Pipe* p = new Pipe(100, 0);
+	this->gameObjects[1] = new Pipe(100, 0);
+	this->numberOfGameObjects++;
 
 	while (true) {
-		this->PhysicsUpdate(p);
-		this->Render(p);
+		this->PhysicsUpdate();
+		this->Render();
 		Sleep(100);
 	}
 }
 
-void Game::Render(const Pipe* pipe) const
+void Game::Render() const
 {
 	system("CLS");
 
@@ -31,14 +38,17 @@ void Game::Render(const Pipe* pipe) const
 	for (int y = 10; y >= 0; y--) {
 		std::cout << " | ";
 		for (int x = 0; x <= 10; x++) {
-			if (round(this->flappy->GetX() / 10.0) == x &&
-				round(this->flappy->GetY() / 10.0) == y) {
-				this->flappy->Render();
-			} else if (round(pipe->GetX() / 10.0) == x &&
-				round(pipe->GetY() / 10.0) == y) {
-				pipe->Render();
+			bool rendered = false;
+
+			for (int i = 0; i < this->numberOfGameObjects; i++) {
+				if (round(this->gameObjects[i]->GetX() / 10.0) == x &&
+					round(this->gameObjects[i]->GetY() / 10.0) == y) {
+					this->gameObjects[i]->Render();
+					rendered = true;
+				}
 			}
-			else {
+
+			if (!rendered) {
 				std::cout << " ";
 			}
 		}
@@ -47,8 +57,9 @@ void Game::Render(const Pipe* pipe) const
 	std::cout << "=================" << std::endl;
 }
 
-void Game::PhysicsUpdate(Pipe* pipe)
+void Game::PhysicsUpdate()
 {
-	this->flappy->PhysicsUpdate();
-	pipe->PhysicsUpdate();
+	for (int i = 0; i < this->numberOfGameObjects; i++) {
+		this->gameObjects[i]->PhysicsUpdate();
+	}
 }

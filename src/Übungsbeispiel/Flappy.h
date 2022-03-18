@@ -10,5 +10,7 @@ public:
 
 	void Render() const;
 	void PhysicsUpdate();
+
+	void Test();
 };
 
