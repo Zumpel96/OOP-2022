@@ -39,6 +39,8 @@
 		<Unit filename="Übungsbeispiel/Game.h" />
 		<Unit filename="Übungsbeispiel/Pipe.cpp" />
 		<Unit filename="Übungsbeispiel/Pipe.h" />
+		<Unit filename="Übungsbeispiel/GameObject.h" />
+		<Unit filename="Übungsbeispiel/GameObject.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

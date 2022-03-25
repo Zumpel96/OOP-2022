@@ -3,6 +3,7 @@
 #include "Pipe.h"
 #include <iostream>
 #include <windows.h>
+#include <math.h>
 
 Game::Game()
 {

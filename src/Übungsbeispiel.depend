@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1647594881 source:c:\users\bernh\source\repos\oop-2022\src\Übungsbeispiel\flappy.cpp
+	"Flappy.h"
+	<iostream>
+
+1647594865 c:\users\bernh\source\repos\oop-2022\src\Übungsbeispiel\flappy.h
+	"GameObject.h"
+
+1647594612 c:\users\bernh\source\repos\oop-2022\src\Übungsbeispiel\gameobject.h
+
+1647594579 source:c:\users\bernh\source\repos\oop-2022\src\Übungsbeispiel\gameobject.cpp
+	"GameObject.h"
+	<iostream>
+
+1647591245 source:c:\users\bernh\source\repos\oop-2022\src\Übungsbeispiel\main.cpp
+	<iostream>
+	"Game.h"
+
+1647594025 c:\users\bernh\source\repos\oop-2022\src\Übungsbeispiel\game.h
+	"GameObject.h"
+
+1647594840 source:c:\users\bernh\source\repos\oop-2022\src\Übungsbeispiel\pipe.cpp
+	"Pipe.h"
+	<iostream>
+
+1647594839 c:\users\bernh\source\repos\oop-2022\src\Übungsbeispiel\pipe.h
+	"GameObject.h"
+
