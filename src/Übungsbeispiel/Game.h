@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include <vector>
 
 class Game
 {
@@ -10,9 +11,9 @@ public:
 	void Start();
 	void Render() const;
 	void PhysicsUpdate();
+	bool CollisionCheck() const;
 
 private:
-	GameObject* gameObjects[10];
-	int numberOfGameObjects = 0;
+	std::vector<GameObject*> gameObjects;
 };
 

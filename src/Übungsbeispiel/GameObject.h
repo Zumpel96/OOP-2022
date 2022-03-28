@@ -13,6 +13,10 @@ public:
 
 	virtual void PhysicsUpdate() = 0;
 	virtual void Render() const = 0;
+	virtual bool CollisionCheck(GameObject* other) const;
+
+protected:
+	bool BaseCollision(GameObject* other) const;
 
 private:
 	double x;

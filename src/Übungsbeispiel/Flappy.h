@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
-#define CONST_FLAPPY_SPEED 0.25
+#define CONST_FLAPPY_SPEED 0.3
 
 class Flappy : public GameObject
 {
@@ -10,7 +10,6 @@ public:
 
 	void Render() const;
 	void PhysicsUpdate();
-
-	void Test();
+	bool CollisionCheck(GameObject* other) const override;
 };
 

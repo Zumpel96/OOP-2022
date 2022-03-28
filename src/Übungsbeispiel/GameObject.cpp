@@ -40,3 +40,18 @@ void GameObject::SetY(double y) {
 		this->y = 100;
 	}
 }
+
+bool GameObject::CollisionCheck(GameObject* other) const
+{
+	return this->BaseCollision(other);
+}
+
+bool GameObject::BaseCollision(GameObject* other) const
+{
+	if (this == other) {
+		return false;
+	}
+
+	return round(this->GetX() / 10.0) == round(other->GetX() / 10.0) &&
+		round(this->GetY() / 10.0) == round(other->GetY() / 10.0);
+}

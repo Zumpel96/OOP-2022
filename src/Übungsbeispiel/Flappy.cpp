@@ -15,3 +15,12 @@ void Flappy::PhysicsUpdate()
 {
 	this->SetY(this->GetY() - CONST_FLAPPY_SPEED);
 }
+
+bool Flappy::CollisionCheck(GameObject* other) const
+{
+	if (this->GetY() <= 0) {
+		return true;
+	}
+
+	return this->BaseCollision(other);
+}

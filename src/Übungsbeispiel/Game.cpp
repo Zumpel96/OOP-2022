@@ -7,28 +7,31 @@
 
 Game::Game()
 {
-	this->gameObjects[0] = new Flappy(20);
-	this->numberOfGameObjects++;
+	this->gameObjects.push_back(new Flappy(20));
 }
 
 Game::~Game()
 {
-	for (int i = 0; i < this->numberOfGameObjects; i++) {
-		delete this->gameObjects[i];
+	for (const auto& gameObject : this->gameObjects) {
+		delete gameObject;
 	}
-	delete[] this->gameObjects;
 }
 
 void Game::Start()
 {
-	this->gameObjects[1] = new Pipe(100, 0);
-	this->numberOfGameObjects++;
+	this->gameObjects.push_back(new Pipe(100, 0));
 
 	while (true) {
 		this->PhysicsUpdate();
 		this->Render();
+		if (this->CollisionCheck()) {
+			break;
+		}
+
 		Sleep(100);
 	}
+
+	std::cout << "You lost!" << std::endl;
 }
 
 void Game::Render() const
@@ -41,10 +44,10 @@ void Game::Render() const
 		for (int x = 0; x <= 10; x++) {
 			bool rendered = false;
 
-			for (int i = 0; i < this->numberOfGameObjects; i++) {
-				if (round(this->gameObjects[i]->GetX() / 10.0) == x &&
-					round(this->gameObjects[i]->GetY() / 10.0) == y) {
-					this->gameObjects[i]->Render();
+			for (const auto& gameObject : this->gameObjects) {
+				if (round(gameObject->GetX() / 10.0) == x &&
+					round(gameObject->GetY() / 10.0) == y) {
+					gameObject->Render();
 					rendered = true;
 				}
 			}
@@ -60,7 +63,20 @@ void Game::Render() const
 
 void Game::PhysicsUpdate()
 {
-	for (int i = 0; i < this->numberOfGameObjects; i++) {
-		this->gameObjects[i]->PhysicsUpdate();
+	for (const auto& gameObject : this->gameObjects) {
+		gameObject->PhysicsUpdate();
 	}
+}
+
+bool Game::CollisionCheck() const
+{
+	for (const auto& gameObjectA : this->gameObjects) {
+		for (const auto& gameObjectB : this->gameObjects) {
+			if (gameObjectA->CollisionCheck(gameObjectB)) {
+				return true;
+			}
+		}
+	}
+
+	return false;
 }
