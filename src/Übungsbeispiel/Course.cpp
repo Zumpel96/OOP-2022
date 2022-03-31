@@ -11,16 +11,20 @@ Course::Course(string name) {
 
 Course::~Course() {
 	cout << this->name << " destroyed" << endl;
+
+	for (const auto& question : questions) {
+		delete question;
+	}
 }
 
 void Course::Start()
 {
-	for (int i = 0; i < this->questionCount; i++) {
-		std::cout << this->questions[i]->ToString() << std::endl;
+	for (const auto& question : questions) {
+		std::cout << question->ToString() << std::endl;
 		std::cout << "Enter answer: ";
 		std::string answer;
 		std::cin >> answer;
-		this->questions[i]->Evalute(answer);
+		question->Evalute(answer);
 	}
 }
 
@@ -34,13 +38,7 @@ void Course::SetGrade(int grade) {
 
 void Course::AddQuestion(Question* question)
 {
-	if (this->questionCount >= MAX_QUESTIONS) {
-		std::cout << "Maximum number of questions reached" << std::endl;
-		return;
-	}
-
-	this->questions[this->questionCount] = question;
-	this->questionCount++;
+	this->questions.push_back(question);
 }
 
 std::string Course::ToString() const
@@ -51,8 +49,8 @@ std::string Course::ToString() const
 	ss << " --- Grade: " << this->grade << " --- " << std::endl;
 	ss << " =====================================" << std::endl;
 	
-	for (int i = 0; i < this->questionCount; i++) {
-		ss << this->questions[i]->ToString() << std::endl;
+	for (const auto& question : questions) {
+		ss << question->ToString() << std::endl;
 	}
 
 	return ss.str();

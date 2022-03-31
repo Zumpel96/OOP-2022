@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
+#include <vector>
 #include "Question.h"
-#define MAX_QUESTIONS 5
 
 class Course
 {
@@ -17,7 +17,6 @@ public:
 private:
 	std::string name;
 	int grade = 5;
-	Question* questions[MAX_QUESTIONS];
-	int questionCount = 0;
+	std::vector<Question*> questions;
 };
 
