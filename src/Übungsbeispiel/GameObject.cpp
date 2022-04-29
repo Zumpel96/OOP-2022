@@ -41,12 +41,24 @@ void GameObject::SetY(double y) {
 	}
 }
 
-bool GameObject::CollisionCheck(GameObject* other) const
+bool GameObject::CollisionCheck(const GameObject* other) const
 {
 	return this->BaseCollision(other);
 }
 
-bool GameObject::BaseCollision(GameObject* other) const
+const bool GameObject::operator+(const GameObject& other)
+{
+	return this->CollisionCheck(&other);
+}
+
+const bool GameObject::operator+(const GameObject* other)
+{
+	//return this->CollisionCheck(other);
+	return *this + *other;
+}
+
+
+bool GameObject::BaseCollision(const GameObject* other) const
 {
 	if (this == other) {
 		return false;
@@ -54,4 +66,14 @@ bool GameObject::BaseCollision(GameObject* other) const
 
 	return round(this->GetX() / 10.0) == round(other->GetX() / 10.0) &&
 		round(this->GetY() / 10.0) == round(other->GetY() / 10.0);
+}
+
+std::ostream& operator<<(std::ostream& os, const GameObject& gameObject)
+{
+	return os << gameObject.ToString();
+}
+
+std::ostream& operator<<(std::ostream& os, const GameObject* gameObject)
+{
+	return os << *gameObject;
 }

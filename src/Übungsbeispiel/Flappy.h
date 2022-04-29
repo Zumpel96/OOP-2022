@@ -8,8 +8,8 @@ class Flappy : public GameObject
 public:
 	Flappy(double y);
 
-	void Render() const;
+	std::string ToString() const override;
 	void PhysicsUpdate();
-	bool CollisionCheck(GameObject* other) const override;
+	bool CollisionCheck(const GameObject* other) const override;
 };
 

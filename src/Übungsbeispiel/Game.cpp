@@ -3,12 +3,13 @@
 #include "Pipe.h"
 #include <iostream>
 #include <windows.h>
+#include <stdexcept>
 #include <math.h>
 
 Game::Game()
 {
 	this->gameObjects.push_back(new Flappy(20));
-}
+ }
 
 Game::~Game()
 {
@@ -47,7 +48,7 @@ void Game::Render() const
 			for (const auto& gameObject : this->gameObjects) {
 				if (round(gameObject->GetX() / 10.0) == x &&
 					round(gameObject->GetY() / 10.0) == y) {
-					gameObject->Render();
+					std::cout << gameObject;
 					rendered = true;
 				}
 			}
@@ -72,7 +73,7 @@ bool Game::CollisionCheck() const
 {
 	for (const auto& gameObjectA : this->gameObjects) {
 		for (const auto& gameObjectB : this->gameObjects) {
-			if (gameObjectA->CollisionCheck(gameObjectB)) {
+			if (*gameObjectA + gameObjectB) {
 				return true;
 			}
 		}

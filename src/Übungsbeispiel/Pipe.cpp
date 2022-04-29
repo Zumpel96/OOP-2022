@@ -1,9 +1,9 @@
 #include "Pipe.h"
 #include <iostream>
 
-void Pipe::Render() const
+std::string Pipe::ToString() const
 {
-	std::cout << "\033[42m \033[m";
+	return "\033[42m \033[m";
 }
 
 void Pipe::PhysicsUpdate()

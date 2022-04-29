@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+#include <string>
+
 class GameObject
 {
 public:
@@ -12,11 +15,16 @@ public:
 	void SetY(double y);
 
 	virtual void PhysicsUpdate() = 0;
-	virtual void Render() const = 0;
-	virtual bool CollisionCheck(GameObject* other) const;
+	virtual std::string ToString() const = 0;
+	virtual bool CollisionCheck(const GameObject* other) const;
+
+	const bool operator+(const GameObject& other);
+	const bool operator+(const GameObject* other);
+	friend std::ostream& operator<<(std::ostream& os, const GameObject& gameObject);
+	friend std::ostream& operator<<(std::ostream& os, const GameObject* gameObject);
 
 protected:
-	bool BaseCollision(GameObject* other) const;
+	bool BaseCollision(const GameObject* other) const;
 
 private:
 	double x;

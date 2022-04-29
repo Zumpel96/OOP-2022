@@ -6,7 +6,7 @@ class Pipe : public GameObject
 {
 public:
 	Pipe(double x, double y) : GameObject(x, y) {}
-	void Render() const;
+	std::string ToString() const override;
 	void PhysicsUpdate();
 };
 
