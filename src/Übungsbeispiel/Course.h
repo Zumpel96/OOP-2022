@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <iostream>
 #include "Question.h"
 
 class Course
@@ -13,6 +14,10 @@ public:
 	void SetGrade(int grade);
 	void AddQuestion(Question* question);
 	std::string ToString() const;
+
+	const Course* operator+=(Question* question);
+	friend std::ostream& operator<<(std::ostream& os, const Course& course);
+	friend std::ostream& operator<<(std::ostream& os, const Course* course);
 
 private:
 	std::string name;

@@ -55,3 +55,19 @@ std::string Course::ToString() const
 
 	return ss.str();
 }
+
+const Course* Course::operator+=(Question* question)
+{
+	this->AddQuestion(question);
+	return this;
+}
+
+std::ostream& operator<<(std::ostream& os, const Course& course)
+{
+	return os << course.ToString();
+}
+
+std::ostream& operator<<(std::ostream& os, const Course* course)
+{
+	return os << *course;
+}

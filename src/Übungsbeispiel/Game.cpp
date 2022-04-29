@@ -19,7 +19,6 @@ Game::~Game()
 
 void Game::Start()
 {
-
 	Course* course = new Course("Test Course");
 	Question* q1 = new SingleChoiceQuestion("Test Question A", "Test A");
 	q1->AddAnswer("Test A");
@@ -30,11 +29,13 @@ void Game::Start()
 	q2->AddAnswer("Test C");
 	Question* q3 = new OpenQuestion("Test Question C", "Test");
 
-	course->AddQuestion(q1);
-	course->AddQuestion(q2);
-	course->AddQuestion(q3);
+	*course += q1;
+	*course += q2;
+	*course += q3;
 
-	course->Start();
+	std::cout << course << std::endl;
+
+	//course->Start();
 
 	//while (true) {
 	//	std::cout << "Frame" << std::endl;
